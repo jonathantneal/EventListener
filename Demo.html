@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="Polyfills the EventListener interface in IE8.">
+		<meta name="viewport" content="width=device-width">
+		<title>EventListener</title>
+		<script src="EventListener.js"></script>
+	</head>
+	<body>
+		<h1>
+			EventListener
+		</h1>
+		<p>
+			<span id="a">Three events are registered these two sentences.</span>
+			<span id="b">On dispatch, they will remove themselves.</span>
+		</p>
+		<p id="c">
+			A fourth event is registered on the document, and a fifth on the window that actually registers the other four.
+		</p>
+		<script>
+		var
+		span1 = document.getElementById("a"),
+		span2 = document.getElementById("b"),
+		p2 = document.getElementById("c"),
+		onevent = function (event) {
+			var message = "Succesfully fired " + event.type + " on " + (event.currentTarget && event.currentTarget.nodeName || "window") + " at " + new Date + ".";
+
+			if (event.currentTarget.innerHTML) event.currentTarget.innerHTML = message; else p2.innerHTML = message;
+
+			event.currentTarget.removeEventListener(event.type, onevent);
+		};
+
+		window.addEventListener("load", function (event) {
+			span1.addEventListener("mouseover", onevent);
+			span2.addEventListener("mousedown", onevent);
+			span2.addEventListener("mouseup", onevent);
+
+			document.addEventListener("click", onevent);
+		});
+		</script>
+	</body>
+</html>
