@@ -27,7 +27,7 @@
 	});
 
 	addToPrototype("removeEventListener", function (type, listener) {
-		for (var index = 0; registry[index]; ++index) {
+		for (var index = 0, length = registry.length; index < length; ++index) {
 			if (registry[index].target == this && registry[index].type == type && registry[index].listener == listener) {
 				return this.detachEvent("on" + type, registry.splice(index, 1)[0].__listener);
 			}
