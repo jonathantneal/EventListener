@@ -14,6 +14,7 @@
 				event.currentTarget = target;
 				event.preventDefault = function () { event.returnValue = false };
 				event.stopPropagation = function () { event.cancelBubble = true };
+				event.relatedTarget = event.fromElement || null;
 				event.target = event.srcElement || target;
 
 				listener.call(target, event);
