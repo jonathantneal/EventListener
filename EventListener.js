@@ -1,4 +1,4 @@
-// EventListener | @jon_neal | MIT/GPL2
+// EventListener | MIT/GPL2 | github.com/jonathantneal/EventListener
 
 !this.addEventListener && this.Element && (function () {
 	function addToPrototype(name, method) {
@@ -7,6 +7,7 @@
 
 	var registry = [];
 
+	// add
 	addToPrototype("addEventListener", function (type, listener) {
 		var target = this;
 
@@ -32,6 +33,7 @@
 		this.attachEvent("on" + type, registry[0].__listener);
 	});
 
+	// remove
 	addToPrototype("removeEventListener", function (type, listener) {
 		for (var index = 0, length = registry.length; index < length; ++index) {
 			if (registry[index].target == this && registry[index].type == type && registry[index].listener == listener) {
@@ -40,6 +42,7 @@
 		}
 	});
 
+	// dispatch
 	addToPrototype("dispatchEvent", function (eventObject) {
 		try {
 			return this.fireEvent("on" + eventObject.type, eventObject);
