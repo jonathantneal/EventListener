@@ -6,7 +6,7 @@ This script polyfills **addEventListener**, **removeEventListener**, and **dispa
 
 ## addEventListener
 
-addEventListener registers a single event listener on a single target.
+addEventListener registers an event listener on a target.
 
 ### Syntax
 
@@ -22,7 +22,7 @@ It should be noted that **useCapture** has not been polyfilled.
 
 ## removeEventListener
 
-removeEventListener unregisters a single event listener on a single target.
+removeEventListener unregisters an event listener on a target.
 
 ### Syntax
 
