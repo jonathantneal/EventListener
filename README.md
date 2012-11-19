@@ -2,7 +2,7 @@
 
 Is IE8 your new IE6? Level the playing field with polyfills.
 
-This script polyfills **addEventListener**, **removeEventListener**, and **dispatchEvent**. It is less than half a kilobyte minified and gzipped.
+This script polyfills **addEventListener**, **removeEventListener**, **dispatchEvent**, **CustomEvent**, and **DOMContentLoaded**. It is less than half a kilobyte minified and gzipped.
 
 ## addEventListener
 
