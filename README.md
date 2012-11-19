@@ -49,3 +49,19 @@ bool = target.dispatchEvent(event);
 - **event**: An event object to be dispatched.
 
 It should be noted that **`document.createEvent`** has not been polyfilled.
+
+## CustomEvent
+
+A custom event to be initialized by **dispatchEvent**.
+
+```js
+var event = new CustomEvent(type, canBubble, cancelable, details);
+```
+
+- **type**: A string representing the event type.
+
+- **canBubble**: A boolean indicating whether the event bubbles up through the DOM or not.
+
+- **cancelable**: A boolean indicating whether the event is cancelable.
+
+- **details**: Additional data passed into the custom event.
