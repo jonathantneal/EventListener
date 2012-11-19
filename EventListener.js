@@ -46,7 +46,7 @@
 		} catch (error) {
 			for (var index = 0, length = registry.length; index < length; ++index) {
 				if (registry[index].target == this && registry[index].type == eventObject.type) {
-					registry[index].call(this, eventObject);
+					registry[index].__listener.call(this, eventObject);
 				}
 			}
 		}
