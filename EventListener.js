@@ -54,4 +54,25 @@
 			}
 		}
 	});
+
+	// custom
+	Object.defineProperty(Window.prototype, "CustomEvent", {
+		get: function () {
+			var self = this;
+
+			return function CustomEvent(type, canBubble, cancelable, detail) {
+				var event = self.document.createEventObject(), key;
+
+				event.type = type;
+				event.returnValue = !cancelable;
+				event.cancelBubble = !canBubble;
+
+				for (key in detail) {
+					event[key] = detail[key];
+				}
+
+				return event;
+			};
+		}
+	});
 })();
