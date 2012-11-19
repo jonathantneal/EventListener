@@ -14,9 +14,9 @@ addEventListener registers an event listener on a target.
 target.addEventListener(type, listener);
 ```
 
-**type**: A string representing the event type to listen for.
+- **type**: A string representing the event type to listen for.
 
-**listener**: The object that receives a notification when an event of the specified type occurs. This must be an object implementing the EventListener interface, or simply a JavaScript function.
+- **listener**: The object that receives a notification when an event of the specified type occurs. This must be an object implementing the EventListener interface, or simply a JavaScript function.
 
 It should be noted that **useCapture** has not been polyfilled.
 
@@ -30,9 +30,9 @@ removeEventListener unregisters an event listener on a target.
 target.removeEventListener(type, listener);
 ```
 
-**type**: A string representing the event type being removed.
+- **type**: A string representing the event type being removed.
 
-**listener**: The EventListener object or function to be removed.
+- **listener**: The EventListener object or function to be removed.
 
 It should be noted that **useCapture** has not been polyfilled.
 
@@ -46,6 +46,6 @@ Dispatches an event into the event system. The event is subject to the same capt
 bool = target.dispatchEvent(event);
 ```
 
-**event**: An event object to be dispatched.
+- **event**: An event object to be dispatched.
 
 It should be noted that **`document.createEvent`** has not been polyfilled.
