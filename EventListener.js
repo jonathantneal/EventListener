@@ -75,4 +75,11 @@
 			};
 		}
 	});
+
+	// ready
+	document.addEventListener("readystatechange", function (event) {
+		if (document.readyState == "complete")) {
+			document.dispatchEvent(new CustomEvent("DOMContentLoaded", false, false));
+		}
+	});
 })();
