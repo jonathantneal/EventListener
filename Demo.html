@@ -10,16 +10,12 @@
 		<!--[if lt IE 8]><script src="EventListener.oldie.js"></script><!--<![endif]-->
 	</head>
 	<body>
-		<h1>
-			EventListener
-		</h1>
+		<h1>EventListener</h1>
 		<p>
 			<span id="a">Three events are registered these two sentences.</span>
 			<span id="b">On dispatch, they will remove themselves.</span>
 		</p>
-		<p id="c">
-			A fourth event is registered on the document, and a fifth on the window that actually registers the other four.
-		</p>
+		<p id="c">A fourth event is registered on the document.</p>
 		<script>
 		var
 		span1 = document.getElementById("a"),
@@ -33,7 +29,9 @@
 			event.currentTarget.removeEventListener(event.type, onevent);
 		};
 
-		window.addEventListener("load", function (event) {
+		document.addEventListener("DOMContentLoaded", function (event) {
+			p2.innerHTML = p2.innerHTML.slice(0, -1) + ", and a fifth on the window that actually registers the other four.";
+
 			span1.addEventListener("mouseover", onevent);
 			span2.addEventListener("mousedown", onevent);
 			span2.addEventListener("mouseup", onevent);
