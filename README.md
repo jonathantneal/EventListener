@@ -2,6 +2,8 @@
 
 Is IE8 your new IE6? Level the playing field with polyfills.
 
+Is IE6 still your IE6? You're covered too now.
+
 This script polyfills **addEventListener**, **removeEventListener**, **dispatchEvent**, **CustomEvent**, and **DOMContentLoaded**. It is less than half a kilobyte minified and gzipped.
 
 ## addEventListener
