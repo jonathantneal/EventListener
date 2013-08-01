@@ -25,7 +25,6 @@ this.Element && Element.prototype.attachEvent && !Element.prototype.addEventList
 				event.relatedTarget = event.fromElement || null;
 				event.stopImmediatePropagation = function () { immediatePropagation = false; event.cancelBubble = true };
 				event.stopPropagation = function () { event.cancelBubble = true };
-				event.relatedTarget = event.fromElement || null;
 				event.target = event.srcElement || target;
 				event.timeStamp = +new Date;
 
