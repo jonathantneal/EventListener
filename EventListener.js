@@ -123,3 +123,13 @@ this.Element && Element.prototype.attachEvent && !Element.prototype.addEventList
 
 	window.addEventListener("load", ready);
 })();
+
+!this.CustomEvent && (function() {
+	// CustomEvent for browsers which don't natively support the Constructor method
+	window.CustomEvent = function CustomEvent(type, eventInitDict) {
+		eventInitDict = eventInitDict || {bubbles: false, cancelable: false, detail: undefined};
+		var event = document.createEvent('CustomEvent');
+		event.initCustomEvent(type, eventInitDict.bubbles, eventInitDict.cancelable, eventInitDict.detail);
+		return event;
+	};
+})();
