@@ -127,9 +127,19 @@ this.Element && Element.prototype.attachEvent && !Element.prototype.addEventList
 !this.CustomEvent && (function() {
 	// CustomEvent for browsers which don't natively support the Constructor method
 	window.CustomEvent = function CustomEvent(type, eventInitDict) {
+		var event;
 		eventInitDict = eventInitDict || {bubbles: false, cancelable: false, detail: undefined};
-		var event = document.createEvent('CustomEvent');
-		event.initCustomEvent(type, eventInitDict.bubbles, eventInitDict.cancelable, eventInitDict.detail);
+
+		try {
+			event = document.createEvent('CustomEvent');
+			event.initCustomEvent(type, eventInitDict.bubbles, eventInitDict.cancelable, eventInitDict.detail);
+		} catch (error) {
+			// for browsers which don't support CustomEvent at all, we use a regular event instead
+			event = document.createEvent('Event');
+			event.initEvent(type, eventInitDict.bubbles, eventInitDict.cancelable);
+			event.detail = eventInitDict.detail;
+		}
+
 		return event;
 	};
 })();
