@@ -1,4 +1,4 @@
-// EventListener | MIT/GPL2 | github.com/jonathantneal/EventListener
+// EventListener | CC0 | github.com/jonathantneal/EventListener
 
 !this.addEventListener && this.attachEvent && (function (window, document) {
 	var registry = [];

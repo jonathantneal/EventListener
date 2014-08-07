@@ -1,4 +1,4 @@
-// EventListener | MIT/GPL2 | github.com/jonathantneal/EventListener
+// EventListener | CC0 | github.com/jonathantneal/EventListener
 
 this.Element && Element.prototype.attachEvent && !Element.prototype.addEventListener && (function () {
 	function addToPrototype(name, method) {
