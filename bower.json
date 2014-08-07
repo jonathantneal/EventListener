@@ -1,0 +1,7 @@
+{
+  "name": "eventlistener-polyfill",
+  "main": "EventListener.js",
+  "ignore": ["Demo.html"],
+  "keywords": ["addeventlistener", "polyfill", "customevent", "events"],
+  "licence": "CC0-1.0"
+}
