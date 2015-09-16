@@ -124,9 +124,9 @@ this.Element && Element.prototype.attachEvent && !Element.prototype.addEventList
 	window.addEventListener("load", ready);
 })();
 
-!this.CustomEvent && (function() {
+(!this.CustomEvent || typeof this.CustomEvent === "object") && (function() {
 	// CustomEvent for browsers which don't natively support the Constructor method
-	window.CustomEvent = function CustomEvent(type, eventInitDict) {
+	this.CustomEvent = function CustomEvent(type, eventInitDict) {
 		var event;
 		eventInitDict = eventInitDict || {bubbles: false, cancelable: false, detail: undefined};
 
