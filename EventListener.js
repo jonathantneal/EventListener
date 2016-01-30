@@ -28,12 +28,17 @@ this.Element && Element.prototype.attachEvent && !Element.prototype.addEventList
 				event.target = event.srcElement || target;
 				event.timeStamp = +new Date;
 
+				var plainEvt = {};
+				for (var i in event) {
+					plainEvt[i] = event[i];
+				}
+
 				// create an cached list of the master events list (to protect this loop from breaking when an event is removed)
 				for (var i = 0, typeListenersCache = [].concat(typeListeners), typeListenerCache, immediatePropagation = true; immediatePropagation && (typeListenerCache = typeListenersCache[i]); ++i) {
 					// check to see if the cached event still exists in the master events list
 					for (var ii = 0, typeListener; typeListener = typeListeners[ii]; ++ii) {
 						if (typeListener == typeListenerCache) {
-							typeListener.call(target, event);
+							typeListener.call(target, plainEvt);
 
 							break;
 						}
